@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean isAnimationFaded;
     private ImageView imgTiger,imgLion;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         imgTiger = findViewById(R.id.imgTiger);
         imgLion = findViewById(R.id.imgLion);
 
+        imgLion.setX(2000);
+        imgTiger.setX(-2000);
         //setting up animation effect
 
         txtAnimation.setOnClickListener(new View.OnClickListener() {
@@ -30,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (isAnimationFaded){
-
+                    imgLion.animate().translationXBy(-2000).setDuration(3000);
+                    imgTiger.animate().translationXBy(2000).setDuration(3000);
                     txtAnimation1.animate().alpha(1f).setDuration(1000);
                     txtAnimation.animate().alpha(0f).setDuration(1000);
                     isAnimationFaded = false;
